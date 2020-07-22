@@ -32,8 +32,11 @@
     </bean>
 
     <!--不使用默认的filter，只扫描带有@Controller注解，DispatcherServlet子容器负责扫描@controller注解的bean-->
-    <context:component-scan base-package="com.cn.controller" use-default-filters="false">
+    <!--<context:component-scan base-package="com.cn.controller" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+    </context:component-scan>-->
+
+    <!--默认扫描com.cn.controller包下面所有的bean-->
+    <context:component-scan base-package="com.cn.controller" />
 
 </beans>

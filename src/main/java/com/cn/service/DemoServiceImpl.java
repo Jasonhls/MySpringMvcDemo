@@ -16,11 +16,11 @@ public class DemoServiceImpl implements DemoService{
      * 父容器中的bean不能引用子容器中的bean，子容器中的bean可以引用父容器中的bean
      * 所以下面的引用，在启动的时候会报错
      */
-//    @Autowired
-//    private DemoController demoController;
+    @Autowired
+    private DemoController demoController;
     @Override
     public String sayHello(String name) {
-//        System.out.println(demoController.sayHello());
+        System.out.println(demoController.sayHello());
         return "hello " + name;
     }
 }
