@@ -7,6 +7,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+    <!--spring父容器负责扫描非@controller注解的bean，比如@Service @Component注解的bean-->
     <context:component-scan base-package="com.cn">
         <!--排除扫描controller注解的-->
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
