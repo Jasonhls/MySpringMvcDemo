@@ -10,7 +10,9 @@
     <!--此文件负责整个mvc中的配置-->
 
     <!--启用spring的一些annotation -->
-    <context:annotation-config/>
+    <context:annotation-config >
+
+    </context:annotation-config>
 
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
     <mvc:annotation-driven/>
@@ -39,4 +41,10 @@
     <!--默认扫描com.cn.controller包下面所有的bean-->
     <context:component-scan base-package="com.cn.controller" />
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/efg"/>
+            <bean class="com.cn.interceptors.MyInterceptorXml"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
