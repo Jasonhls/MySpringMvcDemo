@@ -5,6 +5,6 @@ package com.cn.service;
  * @author: helisen
  * @create: 2020-07-22 13:37
  **/
-public interface DemoService {
-    String sayHello(String name);
-}
+//public interface DemoService {
+//    String sayHello(String name);
+//}

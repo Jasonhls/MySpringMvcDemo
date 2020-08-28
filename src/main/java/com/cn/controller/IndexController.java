@@ -1,7 +1,7 @@
 package com.cn.controller;
 
-import com.cn.service.DemoService;
-import com.cn.service.IndexService;
+//import com.cn.service.DemoService;
+//import com.cn.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,34 +17,34 @@ import javax.servlet.http.HttpServletResponse;
  * @author: helisen
  * @create: 2020-07-20 10:21
  **/
-@Controller
-public class IndexController {
-
-    @Autowired
-    private IndexService indexService;
-    @Autowired
-    private DemoService demoService;
-
-    @RequestMapping(value = "/abc")
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        ModelAndView model=new ModelAndView("abc");
-        model.addObject("message","这是第一个SpringMVC网页");
-        return model;
-    }
-
-    @RequestMapping(value = "/efg")
-    @ResponseBody
-    public String getEfg(@RequestBody String name) {
-        System.out.println(indexService.sayHello(name));
-        return "efg";
-    }
-
-
-    @RequestMapping(value = "/test")
-    public String testServiceUseController(String name) {
-        System.out.println(demoService.sayHello(name));
-        return "efg";
-    }
-
-
-}
+//@Controller
+//public class IndexController {
+//
+//    @Autowired
+//    private IndexService indexService;
+//    @Autowired
+//    private DemoService demoService;
+//
+//    @RequestMapping(value = "/abc")
+//    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception{
+//        ModelAndView model=new ModelAndView("abc");
+//        model.addObject("message","这是第一个SpringMVC网页");
+//        return model;
+//    }
+//
+//    @RequestMapping(value = "/efg")
+//    @ResponseBody
+//    public String getEfg(@RequestBody String name) {
+//        System.out.println(indexService.sayHello(name));
+//        return "efg";
+//    }
+//
+//
+//    @RequestMapping(value = "/test")
+//    public String testServiceUseController(String name) {
+//        System.out.println(demoService.sayHello(name));
+//        return "efg";
+//    }
+//
+//
+//}
