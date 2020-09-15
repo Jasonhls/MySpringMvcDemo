@@ -1,4 +1,7 @@
-package com.cn.designMode.template;
+package com.cn.designMode.template.test;
+
+import com.cn.designMode.template.TemplateA;
+import com.cn.designMode.template.TemplateSubA;
 
 /**
  * @description:
