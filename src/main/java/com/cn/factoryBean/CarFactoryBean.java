@@ -22,6 +22,9 @@ public class CarFactoryBean implements FactoryBean<Car> {
     @Override
     public Car getObject() throws Exception {
         Car car = new Car();
+        car.setBrand("宝马");
+        car.setMaxSpeed(300);
+        car.setPrice(500000d);
         return car;
     }
 
