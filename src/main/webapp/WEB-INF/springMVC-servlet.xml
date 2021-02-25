@@ -41,10 +41,10 @@
     <!--默认扫描com.cn.controller包下面所有的bean-->
     <context:component-scan base-package="com.cn.controller" />
 
-    <mvc:interceptors>
+    <!--<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/efg"/>
             <bean class="com.cn.interceptors.MyInterceptorXml"/>
         </mvc:interceptor>
-    </mvc:interceptors>
+    </mvc:interceptors>-->
 </beans>
