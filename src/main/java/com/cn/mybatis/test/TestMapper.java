@@ -1,5 +1,6 @@
-package com.cn.mybatis;
+package com.cn.mybatis.test;
 
+import com.cn.mybatis.User;
 import com.cn.mybatis.mapper.UserMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

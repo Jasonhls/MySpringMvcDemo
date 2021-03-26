@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class UserServiceTest {
     @Test
     public void test() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("mybatisSpring/spring.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("mybatis/mybatisSpring/spring.xml");
         UserMapper userDao = (UserMapper) context.getBean("userMapper");
         System.out.println(userDao.getUser(27));
     }

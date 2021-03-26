@@ -1,4 +1,4 @@
-package com.cn.mybatis;
+package com.cn.mybatis.test;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -20,7 +20,7 @@ public class MybatisUtil {
     }
 
     static {
-        String resource = "mybatis-config.xml";
+        String resource = "mybatis/test/mybatis-config.xml";
         Reader reader = null;
         try {
             reader = Resources.getResourceAsReader(resource);

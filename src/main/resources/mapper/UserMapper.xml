@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cn.mybatis.mapper.UserMapper">
+<mapper namespace="com.cn.mapper.UserMapper">
     <!--这里的namespace必须是UserMapper接口的路径，不然要运行的时候要报错 is not known to the MapperRegistry-->
 
     <insert id="insertUser" parameterType="User">
@@ -11,7 +11,7 @@
     </insert>
 
     <!--这里的id必须和UserMapper接口中的接口方法名相同，不然运行时也会报错-->
-    <select id="getUser" resultType="User" parameterType="java.lang.Integer">
+    <select id="getUserById" resultType="User" parameterType="java.lang.Integer">
         select * from user where id = #{id}
     </select>
 </mapper>

@@ -15,5 +15,35 @@
 
     <!--如果不排除，扫描com.cn包下所有的，这个时候spring父容器里面既包含了@Controller注解的bean，也包含了@Service注解的bean，所以service中能够引用controller-->
     <context:component-scan base-package="com.cn"/>
+    <mvc:annotation-driven/>
 
+    <!--配置数据源的方式，spring自带的JDBC，c3p0或dbcp-->
+    <!--方式一：spring自带的JDBC方式-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+
+    <!--加载mybatis-config.xml文件以及sql映射文件的SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--指定数据源-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--指定mybatis的配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--配置xml文件的位置-->
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:mapper/*.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--Mapper注入映射器的MapperScannerConfigurer-->
+    <!--配置自动映射器-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.cn.mapper"/>
+    </bean>
+    
 </beans>
