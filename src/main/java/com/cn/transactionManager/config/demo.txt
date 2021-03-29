@@ -1,0 +1,1 @@
+java Configuration的方式，使用@Configuration注解加@Bean注解

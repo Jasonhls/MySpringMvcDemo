@@ -1,4 +1,4 @@
-package com.cn.transactionManager;
+package com.cn.transactionManager.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(value = {"com.cn.transactionManager"})
+@ComponentScan(value = {"com.cn.transactionManager.service"})
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class DataSourceConfiguration {
     @Bean
@@ -23,7 +23,7 @@ public class DataSourceConfiguration {
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Shanghai");
         dataSource.setUsername("root");
-        dataSource.setPassword("123");
+        dataSource.setPassword("123456");
         return dataSource;
     }
 

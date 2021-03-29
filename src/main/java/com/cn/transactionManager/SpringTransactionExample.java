@@ -17,7 +17,7 @@ import java.sql.PreparedStatement;
 public class SpringTransactionExample {
     private static String url = "jdbc:mysql://127.0.0.1:3306/test";
     private static String user = "root";
-    private static String password = "123";
+    private static String password = "123456";
 
     public static void main(String[] args) {
         //获取数据源
