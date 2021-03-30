@@ -19,6 +19,7 @@ public class DynamicTest {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JdkConfig.class);
         //获取的bean为jdk代理的对象，该代理对象封装了JdkDynamicAopProxy对象
         UserService bean = context.getBean(UserService.class);
+        //返回的bean为$Proxy15@1905
         //这里的bean为代理对象，执行sayHello方法的时候，会去调用JdkDynamicAopProxy的invoke方法，因为JdkDynamicAopProxy实现了InvocationHandler
         bean.sayHello("hls");
     }
