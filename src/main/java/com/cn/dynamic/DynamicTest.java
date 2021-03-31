@@ -20,7 +20,7 @@ public class DynamicTest {
      */
     @Test
     public void testJdkDynamic() {
-        //利用HSDB工具结合打断点，获取代理对象的class文件
+        //利用HSDB工具结合打断点，获取代理对象的class文件，生成的Class文件在C:\Windows\System32\Com\sun\proxy目录下
         //第一步，会把所有的bean初始化并放入spring容器中，而beanName为userServiceImpl的bean实例为JdkDynamicAopProxy对象
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(JdkConfig.class);
         //获取的bean为jdk代理的对象，该代理对象封装了JdkDynamicAopProxy对象
