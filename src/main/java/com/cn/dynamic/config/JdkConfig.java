@@ -1,4 +1,4 @@
-package com.cn.dynamic.jdk;
+package com.cn.dynamic.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

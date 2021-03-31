@@ -8,8 +8,12 @@ import org.springframework.stereotype.Component;
  * @create: 2021-03-29 18:12
  **/
 @Component
-public class UserServiceImpl {
+public class StudentService {
     public void sayHello(String name) {
         System.out.println("say hello to " + name);
+    }
+
+    public String eatDiner(String name) {
+        return name + " start to eat dinner";
     }
 }

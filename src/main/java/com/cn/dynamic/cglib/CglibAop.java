@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class CglibAop {
-    @Pointcut(value = "execution(* com.cn.dynamic.cglib.UserServiceImpl.*(..))")
+    @Pointcut(value = "execution(* com.cn.dynamic.cglib.StudentService.*(..))")
     public void cut() {}
 
     @Around(value = "cut()")
