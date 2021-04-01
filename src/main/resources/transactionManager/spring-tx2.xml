@@ -48,19 +48,19 @@
     第二种：配置事务切面和切点
     -->
     <!--方法一：开启事务控制的注解支持-->
-    <tx:annotation-driven transaction-manager="txManager"/>
+<!--    <tx:annotation-driven transaction-manager="txManager"/>-->
 
     <!--方法二：配置事务切面和切点-->
     <!--事务切面配置-->
-<!--    <tx:advice id="advice" transaction-manager="txManager">-->
-<!--        <tx:attributes>-->
-<!--            <tx:method name="update" propagation="REQUIRED" read-only="false"-->
-<!--                       rollback-for="java.lang.Exception"/>-->
-<!--            &lt;!&ndash;匹配方法名以add开头的方法&ndash;&gt;-->
-<!--            <tx:method name="add*" propagation="REQUIRED" read-only="false"/>-->
-<!--            <tx:method name="create" propagation="REQUIRED" read-only="false"/>-->
-<!--        </tx:attributes>-->
-<!--    </tx:advice>-->
+    <tx:advice id="advice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="update" propagation="REQUIRED" read-only="false"
+                       rollback-for="java.lang.Exception"/>
+            <!--匹配方法名以add开头的方法-->
+            <tx:method name="add*" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="create" propagation="REQUIRED" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
     <!--事务切入点-->
     <!--
     AccountService接口下的所有方法执行：execution(* com.cn.transactionManager.Service.AccountService.*(..))
@@ -68,8 +68,8 @@
     com.cn.transactionManager.service包及其子包下的所有方法的执行：
         execution(* com.cn.transactionManager.service..*.*(..))
     -->
-<!--    <aop:config>-->
-<!--        <aop:pointcut id="txPoint" expression="execution(* com.cn.transactionManager.service..*.*(..))"/>-->
-<!--        <aop:advisor advice-ref="advice" pointcut-ref="txPoint"/>-->
-<!--    </aop:config>-->
+    <aop:config>
+        <aop:pointcut id="txPoint" expression="execution(* com.cn.transactionManager.service..*.*(..))"/>
+        <aop:advisor advice-ref="advice" pointcut-ref="txPoint"/>
+    </aop:config>
 </beans>

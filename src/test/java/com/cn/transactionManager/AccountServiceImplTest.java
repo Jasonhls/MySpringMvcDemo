@@ -9,11 +9,21 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AccountServiceImplTest {
 
     /**
-     * xml的方式
+     * xml的方式，通过开启事务的注解支持，然后在方法上添加@Transactional注解，来开启事务支持
      */
     @Test
     public void addAccountByXml() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("transactionManager/spring-tx.xml");
+        AccountService service = context.getBean(AccountService.class);
+        service.addAccount("tom", 22222);
+    }
+
+    /**
+     * xml的方式，通过配置事务切面和切点的方式，来开启事务支持
+     */
+    @Test
+    public void addAccountByXml2() {
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("transactionManager/spring-tx2.xml");
         AccountService service = context.getBean(AccountService.class);
         service.addAccount("tom", 22222);
     }

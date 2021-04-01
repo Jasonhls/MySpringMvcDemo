@@ -20,12 +20,12 @@ public class AccountServiceImpl implements AccountService {
      * @param initMoney
      */
     @Override
-    @Transactional(rollbackFor = Exception.class)
+//    @Transactional(rollbackFor = Exception.class)
     public void addAccount(String name, int initMoney) {
         String accountName = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
         jdbcTemplate.update("insert into account (account_name, user, money) values (?, ?, ?)",
                 accountName, name, initMoney);
-//        int i = 1 / 0 ;
+        int i = 1 / 0 ;
 
     }
 }
