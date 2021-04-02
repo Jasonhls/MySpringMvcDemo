@@ -4,7 +4,6 @@ import com.cn.pojo.User1;
 import com.cn.transactionManager.config.DataSourceConfiguration;
 import com.cn.transactionManager.service.AccountService;
 import com.cn.transactionManager.service.User1Service;
-import com.cn.transactionManager.service.UserService;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -56,8 +55,24 @@ public class AccountServiceImplTest {
         user1Service.addTest(user1);
     }
 
+    /**
+     * 这样事务是生效的，利用spring上下文的getBean获取service的代理类
+     */
     @Test
     public void testEffectiveTransaction() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DataSourceConfiguration.class);
+        User1Service user1Service = context.getBean(User1Service.class);
+
+        User1 user1 = new User1();
+        user1.setName("hls");
+        user1Service.addTest2(user1);
+    }
+
+    /**
+     * 或者换个类调用这个类加了事务注解的方法
+     */
+    @Test
+    public void testEffectiveTransaction2() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DataSourceConfiguration.class);
         AccountService accountService = context.getBean(AccountService.class);
 

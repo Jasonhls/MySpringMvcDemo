@@ -17,4 +17,6 @@ public interface User1Service {
     void add(User1 user1);
 
     void addTest(User1 user1);
+
+    void addTest2(User1 user1);
 }
