@@ -1,5 +1,6 @@
 package com.cn.transactionManager.service;
 
+import com.cn.pojo.User1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,12 @@ public class AccountServiceImpl implements AccountService {
                 accountName, name, initMoney);
         int i = 1 / 0 ;
 
+    }
+    @Autowired
+    private User1Service user1Service;
+
+    @Override
+    public void addTest(User1 user1) {
+        user1Service.add(user1);
     }
 }
