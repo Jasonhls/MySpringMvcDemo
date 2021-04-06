@@ -150,6 +150,15 @@
       <version>2.11.0</version>
     </dependency>
 
+    <!--查看对象头中的信息-->
+    <!-- https://mvnrepository.com/artifact/org.openjdk.jol/jol-core -->
+    <dependency>
+      <groupId>org.openjdk.jol</groupId>
+      <artifactId>jol-core</artifactId>
+      <version>0.14</version>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
