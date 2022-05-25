@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 /**
  * @description:
@@ -105,6 +106,9 @@ public class UserServiceImpl implements UserService{
         try {
             user2Service.addRequiredException(user2);
         } catch (Exception e) {
+            //注意如果里层事务也是Propagation.REQUIRED，那么里层事务抛出异常要回滚，外层catch了，所以代码继续，
+            //外层事务要提交，由于里层事务跟外层实际上属于同一个事务，因此外层事务提交的时候会报如下错误：
+            //org.springframework.transaction.UnexpectedRollbackException: Transaction rolled back because it has been marked as rollback-only
             System.out.println("方法回滚");
             e.printStackTrace();
         }
