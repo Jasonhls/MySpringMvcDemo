@@ -11,7 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @create: 2021-03-29 17:27
  **/
 @Configuration
-@EnableAspectJAutoProxy(proxyTargetClass = false)
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 @ComponentScan(value = {"com.cn.dynamic.jdk"})
 public class JdkConfig {
 

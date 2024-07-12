@@ -23,6 +23,7 @@ public class JdkAop {
         try {
             System.out.println("方法之前----------");
             Object proceed = joinPoint.proceed(args);
+            System.out.println("方法返回值===" + proceed);
             System.out.println("方法之后----------");
             return proceed;
         } catch (Throwable throwable) {

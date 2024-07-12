@@ -7,4 +7,6 @@ package com.cn.dynamic.jdk;
  **/
 public interface UserService {
     void sayHello(String name);
+
+    String getClassName(String studentName);
 }
