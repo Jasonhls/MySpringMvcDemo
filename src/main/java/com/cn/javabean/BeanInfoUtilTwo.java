@@ -1,6 +1,4 @@
-package com.cn.mybatis.javaBean;
-
-import com.cn.mybatis.User;
+package com.cn.javabean;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -13,33 +11,31 @@ import java.lang.reflect.Method;
  * @create: 2020-09-03 17:02
  **/
 public class BeanInfoUtilTwo {
-    public static void setPropertyByIntrospector(UserInfoDemo user, String name) throws Exception {
+    public static void setPropertyByIntrospector(UserInfoDemo user, String propertyName, Object... propertyValues) throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(UserInfoDemo.class);
         PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
         if(propertyDescriptors != null && propertyDescriptors.length > 0) {
             for (PropertyDescriptor pd : propertyDescriptors) {
-                if(pd.getName().equals(name)) {
+                if(pd.getName().equals(propertyName)) {
                     Method writeMethod = pd.getWriteMethod();
-                    writeMethod.invoke(user, false);
-                    System.out.println("set name: "+ user.getSex());
+                    writeMethod.invoke(user, propertyValues);
                     break;
                 }
             }
         }
     }
 
-    public static void getPropertyByIntrospector(UserInfoDemo user, String name) throws Exception{
+    public static Object getPropertyByIntrospector(UserInfoDemo user, String propertyName) throws Exception {
         BeanInfo beanInfo = Introspector.getBeanInfo(UserInfoDemo.class);
         PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
         if(propertyDescriptors != null && propertyDescriptors.length > 0) {
             for (PropertyDescriptor pd : propertyDescriptors) {
-                if(pd.getName().equals(name)) {
+                if(pd.getName().equals(propertyName)) {
                     Method readMethod = pd.getReadMethod();
-                    Object obj = readMethod.invoke(user);
-                    System.out.println("get name: " + obj.toString());
-                    break;
+                    return  readMethod.invoke(user);
                 }
             }
         }
+        return null;
     }
 }

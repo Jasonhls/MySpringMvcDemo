@@ -12,7 +12,9 @@ import org.junit.Test;
  * @create: 2020-09-02 14:52
  **/
 public class TestMapper {
-    static SqlSessionFactory sqlSessionFactory = null;
+
+    static SqlSessionFactory sqlSessionFactory;
+
     static {
         sqlSessionFactory = MybatisUtil.getSqlSessionFactory();
     }
@@ -35,7 +37,7 @@ public class TestMapper {
         SqlSession sqlSession = sqlSessionFactory.openSession();
         try {
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-            User user = mapper.getUser(27);
+            User user = mapper.getUser(1);
             System.out.println("name: " + user.getName() + "| age: " + user.getAge() + "| sex: " + user.getSex());
         } finally {
             sqlSession.close();

@@ -1,4 +1,4 @@
-package com.cn.mybatis.javaBean;
+package com.cn.javabean;
 
 /**
  * @description:
