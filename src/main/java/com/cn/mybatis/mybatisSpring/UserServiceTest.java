@@ -15,6 +15,6 @@ public class UserServiceTest {
     public void test() {
         ApplicationContext context = new ClassPathXmlApplicationContext("mybatis/mybatisSpring/spring.xml");
         UserMapper userDao = (UserMapper) context.getBean("userMapper");
-        System.out.println(userDao.getUser(27));
+        System.out.println(userDao.getUser(1));
     }
 }
