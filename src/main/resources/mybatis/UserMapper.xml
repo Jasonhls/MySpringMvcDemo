@@ -3,9 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cn.mybatis.mapper.UserMapper">
-    <!--这里的namespace必须是UserMapper接口的路径，不然要运行的时候要报错 is not known to the MapperRegistry-->
+    <!--
+        <cache />: 开启当前Mapper的二级缓存
+        eviction: 当内存使用紧张时缓存的回收策略
+            • LRU – 最近最少使用的：移除最长时间不被使用的对象。
+            • FIFO – 先进先出：按对象进入缓存的顺序来移除它们。
+            • SOFT – 软引用：移除基于垃圾回收器状态和软引用规则的对象。
+            • WEAK – 弱引用：更积极地移除基于垃圾收集器状态和弱引用规则的对象。
+        flushInterval:缓存刷新间隔,缓存多长时间清空一次，默认不清空，可以通过此参数设置一个毫秒值
+        readOnly:是否只读
+            true：只读；mybatis认为所有从缓存中获取数据的操作都是只读操作，不会修改数据。
+            mybatis为了加快获取速度，直接就会将数据在缓存中的引用交给用户。不安全，速度快
+            false：非只读：mybatis觉得获取的数据可能会被修改。
+            mybatis会利用序列化&反序列的技术克隆一份新的数据给你。安全，速度慢
+        size：二级缓存中最大能够缓存存放多少元素
+        type:指定自定义缓存的全类名(实现Cache接口)
+    -->
+    <cache />
 
-    <insert id="insertUser" parameterType="User">
+    <!--
+    useCache: 当一级缓存关闭时,是否将本次SQL语句的结果集存入二级缓存
+    true: 存入(默认值)
+    false: 不存入
+    -->
+
+    <insert id="insertUser" parameterType="User" flushCache="false">
         insert into user(name,age,sex) values(#{name}, #{age}, #{sex})
         <!--这里的sql结尾不能加分号，否则报"ORA-00911"的错误-->
     </insert>
@@ -13,5 +35,9 @@
     <!--这里的id必须和UserMapper接口中的接口方法名相同，不然运行时也会报错-->
     <select id="getUser" resultType="User" parameterType="java.lang.Integer">
         select * from user where id = #{id}
+    </select>
+
+    <select id="getUserByName" resultType="User" parameterType="java.lang.String">
+        select * from user where name = #{name}
     </select>
 </mapper>

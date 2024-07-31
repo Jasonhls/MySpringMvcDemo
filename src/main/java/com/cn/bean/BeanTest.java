@@ -42,4 +42,11 @@ public class BeanTest {
         MyBeanConfigStudent bean = ac.getBean(MyBeanConfigStudent.class);
         System.out.println(bean.toString());
     }
+
+    @Test
+    public void testCandidateBean() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(BeanConfig.class);
+        Student bean = (Student) ac.getBean("studentOne");
+        System.out.println("学生姓名：" + bean.getName() + "，年龄：" + bean.getAge());
+    }
 }

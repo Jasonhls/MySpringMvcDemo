@@ -1,11 +1,13 @@
 package com.cn.mybatis;
 
+import java.io.Serializable;
+
 /**
  * @description:
  * @author: helisen
  * @create: 2020-09-02 14:09
  **/
-public class User {
+public class User implements Serializable {
 
     private Integer id;
     private String name;
